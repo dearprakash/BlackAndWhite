@@ -1,0 +1,13 @@
+kernel vec4 funHouse(sampler image, float redConst, float greenConst, float blueConst)
+{
+  // Get source pixel
+  vec4 p = sample(image, samplerCoord(image));
+  
+  float factor = redConst+greenConst+blueConst/3.0;
+
+  // Calculate the intensity
+  float intensity = clamp(redConst * factor * p.r + greenConst * factor * p.g + blueConst * factor * p.b, 0.0, 1.0);
+
+  // Set the destination pixel based on intensity
+  return vec4(intensity, intensity, intensity, p.a);
+}

@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69303597108E6D3600E322A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69303596108E6D3600E322A8 /* QuartzCore.framework */; };
+		693035B1108FC0F100E322A8 /* GreyscaleEditPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693035B0108FC0F100E322A8 /* GreyscaleEditPluginView.m */; };
+		69A7C1E81093848000F24C1B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A7C1E71093848000F24C1B /* Settings.m */; };
+		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		D118EA660AC08CCB006DD2FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D118EA640AC08CCB006DD2FE /* Localizable.strings */; };
+		D15DEA4A0ABF639500CBE3A5 /* PluginManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15DEA490ABF639500CBE3A5 /* PluginManager.framework */; };
+		D15DEA4F0ABF63C600CBE3A5 /* greyscale.m in Sources */ = {isa = PBXBuildFile; fileRef = D15DEA4D0ABF63C600CBE3A5 /* greyscale.m */; };
+		D15DEA520ABF641300CBE3A5 /* greyscale.nib in Resources */ = {isa = PBXBuildFile; fileRef = D15DEA500ABF641300CBE3A5 /* greyscale.nib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		287924C40DAEB3990074992A /* ApertureEditManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApertureEditManager.h; sourceTree = "<group>"; };
+		287924C50DAEB3990074992A /* ApertureEditPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApertureEditPlugIn.h; sourceTree = "<group>"; };
+		287924C60DAEB3990074992A /* ApertureSDKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApertureSDKCommon.h; sourceTree = "<group>"; };
+		32DBCF630370AF2F00C91783 /* greyscale_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = greyscale_Prefix.pch; sourceTree = "<group>"; };
+		69303596108E6D3600E322A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		693035AF108FC0F100E322A8 /* GreyscaleEditPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreyscaleEditPluginView.h; sourceTree = "<group>"; };
+		693035B0108FC0F100E322A8 /* GreyscaleEditPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreyscaleEditPluginView.m; sourceTree = "<group>"; };
+		69A7C1E61093848000F24C1B /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		69A7C1E71093848000F24C1B /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D118EA650AC08CCB006DD2FE /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D118EB0F0AC08EAE006DD2FE /* greyscale.ApertureEdit */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = greyscale.ApertureEdit; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15DEA490ABF639500CBE3A5 /* PluginManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PluginManager.framework; path = /Library/Frameworks/PluginManager.framework; sourceTree = "<absolute>"; };
+		D15DEA4D0ABF63C600CBE3A5 /* greyscale.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = greyscale.m; sourceTree = "<group>"; };
+		D15DEA4E0ABF63C600CBE3A5 /* greyscale.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = greyscale.h; sourceTree = "<group>"; };
+		D15DEA510ABF641300CBE3A5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/greyscale.nib; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				D15DEA4A0ABF639500CBE3A5 /* PluginManager.framework in Frameworks */,
+				69303597108E6D3600E322A8 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* MyApertureExportPlugIn */ = {
+			isa = PBXGroup;
+			children = (
+				287924C30DAEB3990074992A /* ApertureHeaders */,
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				D118EB1C0AC08EE7006DD2FE /* Products */,
+				69303596108E6D3600E322A8 /* QuartzCore.framework */,
+			);
+			name = MyApertureExportPlugIn;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D15DEA500ABF641300CBE3A5 /* greyscale.nib */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				D118EA640AC08CCB006DD2FE /* Localizable.strings */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D15DEA4E0ABF63C600CBE3A5 /* greyscale.h */,
+				D15DEA4D0ABF63C600CBE3A5 /* greyscale.m */,
+				693035AF108FC0F100E322A8 /* GreyscaleEditPluginView.h */,
+				693035B0108FC0F100E322A8 /* GreyscaleEditPluginView.m */,
+				69A7C1E61093848000F24C1B /* Settings.h */,
+				69A7C1E71093848000F24C1B /* Settings.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D15DEA490ABF639500CBE3A5 /* PluginManager.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		287924C30DAEB3990074992A /* ApertureHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				287924C40DAEB3990074992A /* ApertureEditManager.h */,
+				287924C50DAEB3990074992A /* ApertureEditPlugIn.h */,
+				287924C60DAEB3990074992A /* ApertureSDKCommon.h */,
+			);
+			path = ApertureHeaders;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* greyscale_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D118EB1C0AC08EE7006DD2FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D118EB0F0AC08EAE006DD2FE /* greyscale.ApertureEdit */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* greyscale */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "greyscale" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = greyscale;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = MyApertureExportPlugIn;
+			productReference = D118EB0F0AC08EAE006DD2FE /* greyscale.ApertureEdit */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "greyscale" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* MyApertureExportPlugIn */;
+			productRefGroup = 089C166AFE841209C02AAC07 /* MyApertureExportPlugIn */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* greyscale */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				D15DEA520ABF641300CBE3A5 /* greyscale.nib in Resources */,
+				D118EA660AC08CCB006DD2FE /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D15DEA4F0ABF63C600CBE3A5 /* greyscale.m in Sources */,
+				693035B1108FC0F100E322A8 /* GreyscaleEditPluginView.m in Sources */,
+				69A7C1E81093848000F24C1B /* Settings.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D118EA640AC08CCB006DD2FE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D118EA650AC08CCB006DD2FE /* English */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D15DEA500ABF641300CBE3A5 /* greyscale.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D15DEA510ABF641300CBE3A5 /* English */,
+			);
+			name = greyscale.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = greyscale_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Aperture/Plug-Ins/";
+				PRODUCT_NAME = greyscale;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				WRAPPER_EXTENSION = ApertureEdit;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				DSTROOT = /;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = greyscale_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Aperture/Plug-Ins/";
+				PRODUCT_NAME = greyscale;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				WRAPPER_EXTENSION = ApertureEdit;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "greyscale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "greyscale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
