@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6921143B109BB25900555E8B /* FullSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6921143A109BB25900555E8B /* FullSizeView.m */; };
 		69303597108E6D3600E322A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69303596108E6D3600E322A8 /* QuartzCore.framework */; };
 		693035B1108FC0F100E322A8 /* GreyscaleEditPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 693035B0108FC0F100E322A8 /* GreyscaleEditPluginView.m */; };
 		69A7C1E81093848000F24C1B /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A7C1E71093848000F24C1B /* Settings.m */; };
@@ -27,6 +28,8 @@
 		287924C50DAEB3990074992A /* ApertureEditPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApertureEditPlugIn.h; sourceTree = "<group>"; };
 		287924C60DAEB3990074992A /* ApertureSDKCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApertureSDKCommon.h; sourceTree = "<group>"; };
 		32DBCF630370AF2F00C91783 /* greyscale_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = greyscale_Prefix.pch; sourceTree = "<group>"; };
+		69211439109BB25900555E8B /* FullSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullSizeView.h; sourceTree = "<group>"; };
+		6921143A109BB25900555E8B /* FullSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullSizeView.m; sourceTree = "<group>"; };
 		69303596108E6D3600E322A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
 		693035AF108FC0F100E322A8 /* GreyscaleEditPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreyscaleEditPluginView.h; sourceTree = "<group>"; };
 		693035B0108FC0F100E322A8 /* GreyscaleEditPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreyscaleEditPluginView.m; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				693035B0108FC0F100E322A8 /* GreyscaleEditPluginView.m */,
 				69A7C1E61093848000F24C1B /* Settings.h */,
 				69A7C1E71093848000F24C1B /* Settings.m */,
+				69211439109BB25900555E8B /* FullSizeView.h */,
+				6921143A109BB25900555E8B /* FullSizeView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				D15DEA4F0ABF63C600CBE3A5 /* greyscale.m in Sources */,
 				693035B1108FC0F100E322A8 /* GreyscaleEditPluginView.m in Sources */,
 				69A7C1E81093848000F24C1B /* Settings.m in Sources */,
+				6921143B109BB25900555E8B /* FullSizeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

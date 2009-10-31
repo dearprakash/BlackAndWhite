@@ -34,12 +34,15 @@
 	IBOutlet NSButton *_revertButton;
 	IBOutlet NSButton *_cancelButton;
 	IBOutlet NSButton *_doneButton;
-	IBOutlet NSView *_imageView;	
+	IBOutlet NSView *_imageView;
+	IBOutlet NSView *_fullSizeView;
 	IBOutlet NSSlider *_redSlider;
 	IBOutlet NSSlider *_greenSlider;
 	IBOutlet NSSlider *_blueSlider;
 	IBOutlet NSSlider *_grainSlider;
 	IBOutlet NSButton *_grainButton;
+	IBOutlet NSSlider *_sepiaSlider;
+	IBOutlet NSButton *_sepiaButton;
 	
 @private
 	int _editingIndex;
@@ -50,6 +53,7 @@
 	CIFilter *_blurFilter;
 	CIFilter *_randomGenerator;
 	CIFilter *_randomCrop;
+	CIFilter *_sepiaFilter;
 }
 
 - (IBAction)_cancelEditing:(id)sender;
@@ -61,7 +65,9 @@
 - (IBAction)_changeGreenSlider:(id)sender;
 - (IBAction)_changeBlueSlider:(id)sender;
 - (IBAction)_changeGrainSlider:(id)sender;
+- (IBAction)_changeSepiaSlider:(id)sender;
 - (IBAction)_filmGrainChanged:(id)sender;
+- (IBAction)_sepiaChanged:(id)sender;
 
 - (CIImage *)outputImage;
 

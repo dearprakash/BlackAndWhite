@@ -84,8 +84,13 @@
   } else {
     [_imageFilter setValue:nil forKey:@"inputBackgroundImage"];
   }
+  if (_sepiaButton.state) {
+    [_sepiaFilter setValue:[_imageFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
+    [_cropFilter setValue:[_sepiaFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
+  } else {
+    [_cropFilter setValue:[_imageFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
+  }
 
-  [_cropFilter setValue:[_imageFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
 }
 
 //---------------------------------------------------------
@@ -146,6 +151,7 @@
 			[_topLevelNibObjects retain];
 		}
 		[myNib release];
+    [_editWindow setAcceptsMouseMovedEvents:YES];
 	}
 	
 	return _editWindow;
@@ -174,6 +180,7 @@
   [_blurFilter setDefaults];
   [_blurFilter setValue:[NSNumber numberWithFloat:1.5] forKey:@"inputRadius"];
 	_randomGenerator = [[CIFilter filterWithName:@"CIRandomGenerator"] retain];
+  _sepiaFilter = [[CIFilter filterWithName:@"CISepiaTone"] retain];
 
 	[self _editImage];
  	[self _updateButtons];
@@ -309,6 +316,19 @@
 	[_imageFilter setValue:[setting greenSettingNumber] forKey:INPUT_GREEN_FACTOR];
 	[_imageFilter setValue:[setting blueSettingNumber] forKey:INPUT_BLUE_FACTOR];
 	[_imageFilter setValue:[setting grainSettingNumber] forKey:INPUT_GRAIN_FACTOR];
+  if (_sepiaButton.state) {
+    [_sepiaFilter setValue:[setting sepiaSettingNumber] forKey:@"inputIntensity"];
+  }
+}
+
+-(void)updateAndRedisplay
+{
+	[self updateFilter];
+  [self _editImage];
+  [self _updateButtons];
+	
+	[_imageView setNeedsDisplay:YES];
+	[_fullSizeView setNeedsDisplay:YES];
 }
 
 - (IBAction)_revertCurrentImage:(id)anArgument
@@ -321,6 +341,7 @@
 	[_revertButton setEnabled:NO];
 	
 	[_imageView setNeedsDisplay:YES];
+	[_fullSizeView setNeedsDisplay:YES];
 }
 
 - (IBAction)_changeRedSlider:(id)sender
@@ -329,11 +350,7 @@
 	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
   setting.redSetting = newValue;
   [self synchSliders];
-	[self updateFilter];
-  [self _editImage];
-  [self _updateButtons];
-	
-	[_imageView setNeedsDisplay:YES];
+	[self updateAndRedisplay];
 }
 
 - (IBAction)_changeGreenSlider:(id)sender
@@ -342,11 +359,7 @@
 	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
   setting.greenSetting = newValue;
   [self synchSliders];
-	[self updateFilter];
-  [self _editImage];
-  [self _updateButtons];
-	
-	[_imageView setNeedsDisplay:YES];
+	[self updateAndRedisplay];
 }
 
 - (IBAction)_changeBlueSlider:(id)sender
@@ -355,24 +368,23 @@
 	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
   setting.blueSetting = newValue;
   [self synchSliders];
-	[self updateFilter];
-  [self _editImage];
-  [self _updateButtons];
-	
-	[_imageView setNeedsDisplay:YES];
+	[self updateAndRedisplay];
 }
 
 - (IBAction)_changeGrainSlider:(id)sender;
 {
-  NSLog(@"grain slider: %f", [sender floatValue]);
 	float newValue = [sender floatValue];
 	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
   setting.grainSetting = newValue;
-	[self updateFilter];
-  [self _editImage];
-  [self _updateButtons];
-	
-	[_imageView setNeedsDisplay:YES];
+	[self updateAndRedisplay];
+}
+
+- (IBAction)_changeSepiaSlider:(id)sender;
+{
+	float newValue = [sender floatValue];
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+  setting.sepiaSetting = newValue;
+  [self updateAndRedisplay];
 }
 
 - (IBAction)_filmGrainChanged:(id)sender
@@ -383,9 +395,18 @@
   } else {
 		[_grainSlider setEnabled:NO];
   }
-	[self updateFilter];
-  [self _editImage];
-	[_imageView setNeedsDisplay:YES];
+	[self updateAndRedisplay];
+}
+
+- (IBAction)_sepiaChanged:(id)sender
+{
+  int state = [sender state];
+  if (state) {
+		[_sepiaSlider setEnabled:YES];
+  } else {
+		[_sepiaSlider setEnabled:NO];
+  }
+	[self updateAndRedisplay];
 }
 
 #pragma mark -

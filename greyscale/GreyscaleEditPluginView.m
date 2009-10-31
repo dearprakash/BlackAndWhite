@@ -180,6 +180,16 @@ NSRect NSRectScaleToFit(NSRect src, NSRect model)
 
 @implementation GreyscaleEditPluginView
 
+-(void)awakeFromNib
+{
+  NSRect eyeBox = self.bounds;
+  NSTrackingArea *trackingArea = [[NSTrackingArea alloc] initWithRect:eyeBox
+                                              options: (NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveInKeyWindow )
+                                                owner:self userInfo:nil];
+  [self addTrackingArea:trackingArea];
+}
+
+
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -198,6 +208,32 @@ NSRect NSRectScaleToFit(NSRect src, NSRect model)
 	NSRect drawRect = NSRectCenterOverRect(NSRectScaleToFit(imageRect, rect), rect);
   
 	[image drawInRect:drawRect fromRect:imageRect operation:NSCompositeSourceOver fraction:1.0];
+}
+
+- (void)mouseMoved:(NSEvent *)theEvent
+{
+  // get the local point in view
+  NSPoint event_location = [theEvent locationInWindow];
+  NSPoint local_point = [self convertPoint:event_location fromView:nil];
+  
+	CIImage *image = [_datasource valueForKey:@"outputImage"];
+  
+	CGSize cgSize = image.extent.size;
+	NSRect imageRect = NSMakeRect(0, 0, cgSize.width, cgSize.height);
+  // alculate the rect we are going to draw into
+	NSRect drawRect = NSRectCenterOverRect(NSRectScaleToFit(imageRect, self.bounds), self.bounds);
+  // if the point is in the view
+  if (NSPointInRect(local_point, drawRect)) {
+    // figure out what the scaling is going to be
+    CGFloat widthScale = cgSize.width / drawRect.size.width;
+    CGFloat heightScale = cgSize.height / drawRect.size.height;
+    CGFloat theScale = (widthScale < heightScale ? widthScale : heightScale);
+    // calculate the point in the image keeping in mind the image may not be drawn at 0,0
+    CGPoint pt = CGPointMake((local_point.x-drawRect.origin.x)*theScale, (local_point.y-drawRect.origin.y)*theScale);
+    // draw the 100% view
+    [_fullView setLastMousePosition:pt];
+    [_fullView setNeedsDisplay:YES];
+  }
 }
 
 @end
