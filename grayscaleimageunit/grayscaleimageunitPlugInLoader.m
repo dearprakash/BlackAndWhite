@@ -1,6 +1,6 @@
 //
-//  GreyscaleEditPluginView.h
-//  greyscale
+//  grayscaleimageunitPlugInLoader.m
+//  grayscaleimageunit
 //
 // Copyright (c) 2009 Geoffrey Clements
 // 
@@ -23,15 +23,14 @@
 // THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "grayscaleimageunitPlugInLoader.h"
 
-#import "FullSizeView.h"
+@implementation grayscaleimageunitPlugInLoader
 
-
-@interface GreyscaleEditPluginView : NSView {
-	IBOutlet id _datasource;
-  IBOutlet FullSizeView *_fullView;
-  CGPoint lastMousePosition;
+-(BOOL)load:(void*)host
+{
+    // custom plug-in initialization code goes here
+    return YES;
 }
 
 @end

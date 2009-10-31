@@ -1,6 +1,6 @@
 //
-//  GreyscaleEditPluginView.h
-//  greyscale
+//  grayscaleimageunitFilter.h
+//  grayscaleimageunit
 //
 // Copyright (c) 2009 Geoffrey Clements
 // 
@@ -23,15 +23,18 @@
 // THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
-#import "FullSizeView.h"
 
-
-@interface GreyscaleEditPluginView : NSView {
-	IBOutlet id _datasource;
-  IBOutlet FullSizeView *_fullView;
-  CGPoint lastMousePosition;
+@interface grayscaleimageunitFilter : CIFilter
+{
+  CIImage      *inputImage;
+  CIImage      *inputBackgroundImage;
+  NSNumber     *inputRedFactor;
+  NSNumber     *inputGreenFactor;
+  NSNumber     *inputBlueFactor;
+  NSNumber     *inputNoiseFactor;
 }
 
 @end

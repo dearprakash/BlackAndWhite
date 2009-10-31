@@ -1,7 +1,4 @@
 //
-//  GreyscaleEditPluginView.h
-//  greyscale
-//
 // Copyright (c) 2009 Geoffrey Clements
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,15 +20,15 @@
 // THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/CoreImage.h>
 
-#import "FullSizeView.h"
 
+@interface grayscaleimageunitPlugInLoader : NSObject <CIPlugInRegistration>
+{
 
-@interface GreyscaleEditPluginView : NSView {
-	IBOutlet id _datasource;
-  IBOutlet FullSizeView *_fullView;
-  CGPoint lastMousePosition;
 }
+
+-(BOOL)load:(void*)host;
 
 @end
