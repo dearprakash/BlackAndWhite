@@ -2,7 +2,7 @@
 {
 	089C1669FE841209C02AAC07 /* Project object */ = {
 		activeArchitecturePreference = i386;
-		activeBuildConfigurationName = Release;
+		activeBuildConfigurationName = Debug;
 		activeSDKPreference = macosx10.5;
 		activeTarget = 8D5B49AC048680CD000E48DA /* greyscale */;
 		addToTargets = (
@@ -44,8 +44,8 @@
 					PBXFindDataSource_LocationID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 278682556;
-			PBXWorkspaceStateSaveDate = 278682556;
+			PBXPerProjectTemplateStateSaveDate = 278731417;
+			PBXWorkspaceStateSaveDate = 278731417;
 		};
 		perUserProjectItems = {
 			6900CD47109BDFD4006F0221 /* PBXTextBookmark */ = 6900CD47109BDFD4006F0221 /* PBXTextBookmark */;
@@ -56,7 +56,7 @@
 			6948D623109BE05100695BD0 /* PBXTextBookmark */ = 6948D623109BE05100695BD0 /* PBXTextBookmark */;
 			6948D624109BE05100695BD0 /* PBXTextBookmark */ = 6948D624109BE05100695BD0 /* PBXTextBookmark */;
 			6948D625109BE05100695BD0 /* PBXTextBookmark */ = 6948D625109BE05100695BD0 /* PBXTextBookmark */;
-			6948D628109BE09400695BD0 /* PBXTextBookmark */ = 6948D628109BE09400695BD0 /* PBXTextBookmark */;
+			6970B1BE109D1D8900E18D8B /* PBXTextBookmark */ = 6970B1BE109D1D8900E18D8B /* PBXTextBookmark */;
 		};
 		sourceControlManager = 69D72DF9108D46EB00ECA5AA /* Source Control */;
 		userBuildSettings = {
@@ -172,14 +172,14 @@
 		vrLen = 1598;
 		vrLoc = 0;
 	};
-	6948D628109BE09400695BD0 /* PBXTextBookmark */ = {
+	6970B1BE109D1D8900E18D8B /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = D15DEA4D0ABF63C600CBE3A5 /* greyscale.m */;
-		name = "greyscale.m: 3";
-		rLen = 0;
-		rLoc = 30;
+		name = "greyscale.m: 52";
+		rLen = 8;
+		rLoc = 1608;
 		rType = 0;
-		vrLen = 2368;
+		vrLen = 2456;
 		vrLoc = 0;
 	};
 	69A7C1E61093848000F24C1B /* Settings.h */ = {
@@ -220,9 +220,9 @@
 	};
 	D15DEA4D0ABF63C600CBE3A5 /* greyscale.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1041, 5473}}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 5629}}";
 			sepNavSelRange = "{1608, 8}";
-			sepNavVisRange = "{0, 2547}";
+			sepNavVisRange = "{0, 2456}";
 		};
 	};
 	D15DEA4E0ABF63C600CBE3A5 /* greyscale.h */ = {
