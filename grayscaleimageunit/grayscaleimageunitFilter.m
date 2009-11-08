@@ -34,8 +34,7 @@ static CIKernel *_noisygrayscaleimageunitFilterKernel = nil;
 
 - (id)init
 {
-  if(_grayscaleimageunitFilterKernel == nil)
-  {
+  if(_grayscaleimageunitFilterKernel == nil) {
 		NSBundle    *bundle = [NSBundle bundleForClass:NSClassFromString(@"grayscaleimageunitFilter")];
 		NSStringEncoding encoding = NSUTF8StringEncoding;
 		NSError     *error = nil;

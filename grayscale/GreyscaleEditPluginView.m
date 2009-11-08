@@ -49,8 +49,7 @@ RectPointType;
 //==============================================================================
 NSRect NSRectAlignToPoint(NSRect src, RectPointType srcRectPt, NSPoint modelPt)
 {
-	switch (srcRectPt)
-	{
+	switch (srcRectPt) {
 		case TopLeftRectPoint:
 			src.origin.x = modelPt.x;
 			src.origin.y = modelPt.y - NSHeight(src);
@@ -108,8 +107,7 @@ NSPoint NSRectPoint(NSRect src, RectPointType rectPt)
 {
 	NSPoint	result = src.origin;
 	
-	switch (rectPt)
-	{
+	switch (rectPt) {
 		case TopLeftRectPoint:		result.x = NSMinX(src);	result.y = NSMaxY(src);	break;
 		case TopCenterRectPoint:	result.x = NSMidX(src);	result.y = NSMaxY(src);	break;
 		case TopRightRectPoint:		result.x = NSMaxX(src);	result.y = NSMaxY(src);	break;

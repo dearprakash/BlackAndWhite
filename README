@@ -1,0 +1,32 @@
+BlackAndWhite is a black and white conversion plugin for Aperture. I hope to
+expand the project to include a whole set of useful plugins. I started with a
+black and white conversion plugin because it's the one I wanted most.
+
+The project is called BlackAndWhite but the plugin is called grayscale. At
+some point I'll rename it.
+
+The project is released under the MIT license. See the LICENSE file for
+details.
+
+There are two parts to BlackAndWhite. The first is a Core Image filter. Start
+by building the grayscaleimageunit project. The interesting part of that
+project is the grayscaleimageunitFilterKernel.cikernel file. That file has the
+Core Image image unit code. It implements 2 methods. The first is grayscale,
+which is a straight forward channel mixer black and white conversion. The
+second image unit method is noisygrayscale which implements a channel mixer
+that combines a noisy image with the original image to simulate film grain.
+The rest of the grayscaleimageunit is boilerplate Core Image image unit code.
+
+The second project is grayscale. It is the actual Aperture plugin. The code is
+a bit messy since it is a mix of my coding style and Apple's plugin sample
+code. Their sample coding style isn't quite the same as mine.
+
+The is also a installer project since most folks won't want to build and
+manually install the plugin.
+
+My next step is to clean up the code to better fit my own coding style. The
+plugin is functional even if the code is a bit messy.
+
+The UI is a bit spartan but is also functional.
+
+Enjoy!

@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>greyscale</string>
+	<string>BlackAndWhite</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.baldmountain.edit.greyscale</string>
+	<string>com.baldmountain.edit.BlackAndWhite</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>greyscale</string>
+	<string>BlackAndWhite</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleShortVersionString</key>
@@ -43,15 +43,15 @@
 			<key>className</key>
 			<string>greyscale</string>
 			<key>displayName</key>
-			<string>greyscale</string>
+			<string>BlackAndWhite</string>
 			<key>group</key>
 			<string>C4E54D0A-175D-4751-B9FD-308F6105BFB5</string>
+			<key>infoString</key>
+			<string>infoString</string>
 			<key>protocolNames</key>
 			<array>
 				<string>ApertureEditPlugIn</string>
 			</array>
-			<key>infoString</key>
-			<string>infoString</string>
 			<key>uuid</key>
 			<string>55B3421E-785A-4C15-A67E-034A9E2DADBE</string>
 		</dict>

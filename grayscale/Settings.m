@@ -25,6 +25,11 @@
 
 #import "Settings.h"
 
+static CGFloat clamp(CGFloat val, CGFloat lower, CGFloat upper) {
+  if (val > upper) return upper;
+  if (val < lower) return lower;
+  return val;
+}
 
 @implementation Settings
 
@@ -36,16 +41,11 @@
 
 -(void)validate
 {
-  if (redSetting > 1.0) redSetting = 1.0;
-  if (greenSetting > 1.0) greenSetting = 1.0;
-  if (blueSetting > 1.0) blueSetting = 1.0;
-  if (grainSetting > 1.0) grainSetting = 1.0;
-  if (sepiaSetting > 1.0) sepiaSetting = 1.0;
-  if (redSetting < 0) redSetting = 0.0;
-  if (greenSetting < 0) greenSetting = 0.0;
-  if (blueSetting < 0) blueSetting = 0.0;
-  if (grainSetting < 0) grainSetting = 0.0;
-  if (sepiaSetting < 0) sepiaSetting = 0.0;
+  redSetting = clamp(redSetting, 0.0, 1.0);
+  greenSetting = clamp(greenSetting, 0.0, 1.0);
+  blueSetting = clamp(blueSetting, 0.0, 1.0);
+  grainSetting = clamp(grainSetting, 0.0, 1.0);
+  sepiaSetting = clamp(sepiaSetting, 0.0, 1.0);
 }
 
 -(void)setRedSetting:(CGFloat)value

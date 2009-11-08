@@ -34,10 +34,11 @@
 
 @interface greyscale(Private)
 
--(void)synchSliders;
--(void)updateFilter;
 - (void)_updateButtons;
 - (void)_editImage;
+-(void)synchSliders;
+-(void)updateFilter;
+-(void)updateAndRedisplay;
 
 @end
 
@@ -108,6 +109,36 @@
     [_cropFilter setValue:[_imageFilter valueForKey:@"outputImage"] forKey:@"inputImage"];
   }
 
+}
+
+-(void)synchSliders
+{
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+  [_redSlider setFloatValue:setting.redSetting];
+  [_greenSlider setFloatValue:setting.greenSetting];
+  [_blueSlider setFloatValue:setting.blueSetting];
+}
+
+-(void)updateFilter
+{
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+	[_imageFilter setValue:[setting redSettingNumber] forKey:INPUT_RED_FACTOR];
+	[_imageFilter setValue:[setting greenSettingNumber] forKey:INPUT_GREEN_FACTOR];
+	[_imageFilter setValue:[setting blueSettingNumber] forKey:INPUT_BLUE_FACTOR];
+	[_imageFilter setValue:[setting grainSettingNumber] forKey:INPUT_GRAIN_FACTOR];
+  if (_sepiaButton.state) {
+    [_sepiaFilter setValue:[setting sepiaSettingNumber] forKey:@"inputIntensity"];
+  }
+}
+
+-(void)updateAndRedisplay
+{
+	[self updateFilter];
+  [self _editImage];
+  [self _updateButtons];
+	
+	[_imageView setNeedsDisplay:YES];
+	[_fullSizeView setNeedsDisplay:YES];
 }
 
 //---------------------------------------------------------
@@ -316,36 +347,6 @@
 	[self _updateButtons];
 	
 	[_imageView setNeedsDisplay:YES];
-}
-
--(void)synchSliders
-{
-	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
-  [_redSlider setFloatValue:setting.redSetting];
-  [_greenSlider setFloatValue:setting.greenSetting];
-  [_blueSlider setFloatValue:setting.blueSetting];
-}
-
--(void)updateFilter
-{
-	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
-	[_imageFilter setValue:[setting redSettingNumber] forKey:INPUT_RED_FACTOR];
-	[_imageFilter setValue:[setting greenSettingNumber] forKey:INPUT_GREEN_FACTOR];
-	[_imageFilter setValue:[setting blueSettingNumber] forKey:INPUT_BLUE_FACTOR];
-	[_imageFilter setValue:[setting grainSettingNumber] forKey:INPUT_GRAIN_FACTOR];
-  if (_sepiaButton.state) {
-    [_sepiaFilter setValue:[setting sepiaSettingNumber] forKey:@"inputIntensity"];
-  }
-}
-
--(void)updateAndRedisplay
-{
-	[self updateFilter];
-  [self _editImage];
-  [self _updateButtons];
-	
-	[_imageView setNeedsDisplay:YES];
-	[_fullSizeView setNeedsDisplay:YES];
 }
 
 - (IBAction)_revertCurrentImage:(id)anArgument

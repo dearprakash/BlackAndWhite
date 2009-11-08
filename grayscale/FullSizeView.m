@@ -29,8 +29,7 @@
 @implementation FullSizeView
 
 - (id)initWithFrame:(NSRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
+    if (self = [super initWithFrame:frame]) {
         // Initialization code here.
     }
     return self;
