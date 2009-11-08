@@ -44,8 +44,8 @@
 					PBXFindDataSource_LocationID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 279389666;
-			PBXWorkspaceStateSaveDate = 279389666;
+			PBXPerProjectTemplateStateSaveDate = 279392014;
+			PBXWorkspaceStateSaveDate = 279392014;
 		};
 		perUserProjectItems = {
 			692F9CCE10A728E7006F8875 /* PBXTextBookmark */ = 692F9CCE10A728E7006F8875 /* PBXTextBookmark */;
@@ -55,8 +55,8 @@
 			692F9CF810A72CF8006F8875 /* PBXTextBookmark */ = 692F9CF810A72CF8006F8875 /* PBXTextBookmark */;
 			692F9CF910A72CF8006F8875 /* PBXTextBookmark */ = 692F9CF910A72CF8006F8875 /* PBXTextBookmark */;
 			692F9CFA10A72CF8006F8875 /* PBXTextBookmark */ = 692F9CFA10A72CF8006F8875 /* PBXTextBookmark */;
-			692F9CFB10A72CF8006F8875 /* PlistBookmark */ = 692F9CFB10A72CF8006F8875 /* PlistBookmark */;
 			692F9CFC10A72CF8006F8875 /* PlistBookmark */ = 692F9CFC10A72CF8006F8875 /* PlistBookmark */;
+			69E18F6510A72F5B00DB87AB /* PlistBookmark */ = 69E18F6510A72F5B00DB87AB /* PlistBookmark */;
 		};
 		sourceControlManager = 69D72DF9108D46EB00ECA5AA /* Source Control */;
 		userBuildSettings = {
@@ -154,17 +154,6 @@
 		vrLen = 2387;
 		vrLoc = 0;
 	};
-	692F9CFB10A72CF8006F8875 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = /Users/gclements/work/BlackAndWhite/grayscale/Info.plist;
-		rLen = 0;
-		rLoc = 9223372036854775807;
-	};
 	692F9CFC10A72CF8006F8875 /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
@@ -174,7 +163,7 @@
 		);
 		name = /Users/gclements/work/BlackAndWhite/grayscale/Info.plist;
 		rLen = 0;
-		rLoc = 9223372036854775807;
+		rLoc = 9223372036854775808;
 	};
 	693035AF108FC0F100E322A8 /* GreyscaleEditPluginView.h */ = {
 		uiCtxt = {
@@ -219,6 +208,17 @@
 	69D72DFA108D46EB00ECA5AA /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	69E18F6510A72F5B00DB87AB /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D5B49B7048680CD000E48DA /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/gclements/work/BlackAndWhite/grayscale/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775807;
 	};
 	8D5B49AC048680CD000E48DA /* BlackAndWhite */ = {
 		activeExec = 0;
