@@ -201,6 +201,8 @@
 		[myNib release];
     [_editWindow setAcceptsMouseMovedEvents:YES];
     [_editWindow setDelegate:self];
+    NSRect newFrame = [_editWindow constrainFrameRect:[_editWindow frame] toScreen:[NSScreen mainScreen]];
+    [_editWindow setFrame:newFrame display:YES animate:YES];
 	}
 	
 	return _editWindow;

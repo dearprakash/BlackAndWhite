@@ -198,10 +198,10 @@ NSRect NSRectScaleToFit(NSRect src, NSRect model)
 -(void)awakeFromNib
 {
   NSRect eyeBox = self.bounds;
-  NSTrackingArea *trackingArea = [[NSTrackingArea alloc] initWithRect:eyeBox
+  _trackingArea = [[NSTrackingArea alloc] initWithRect:eyeBox
                                               options: (NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveInKeyWindow )
                                                 owner:self userInfo:nil];
-  [self addTrackingArea:trackingArea];
+  [self addTrackingArea:_trackingArea];
 }
 
 
@@ -230,13 +230,12 @@ NSRect NSRectScaleToFit(NSRect src, NSRect model)
   // get the local point in view
   NSPoint event_location = [theEvent locationInWindow];
   NSPoint local_point = [self convertPoint:event_location fromView:nil];
+  CIImage *image = [_datasource valueForKey:@"outputImage"];
   
-	CIImage *image = [_datasource valueForKey:@"outputImage"];
-  
-	CGSize cgSize = image.extent.size;
-	NSRect imageRect = NSMakeRect(0, 0, cgSize.width, cgSize.height);
+  CGSize cgSize = image.extent.size;
+  NSRect imageRect = NSMakeRect(0, 0, cgSize.width, cgSize.height);
   // alculate the rect we are going to draw into
-	NSRect drawRect = NSRectCenterOverRect(NSRectScaleToFit(imageRect, self.bounds), self.bounds);
+  NSRect drawRect = NSRectCenterOverRect(NSRectScaleToFit(imageRect, self.bounds), self.bounds);
   // if the point is in the view
   if (NSPointInRect(local_point, drawRect)) {
     // figure out what the scaling is going to be

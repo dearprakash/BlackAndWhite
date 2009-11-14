@@ -32,6 +32,7 @@
 	IBOutlet id _datasource;
   IBOutlet FullSizeView *_fullView;
   CGPoint lastMousePosition;
+  NSTrackingArea *_trackingArea;
 }
 
 @end
