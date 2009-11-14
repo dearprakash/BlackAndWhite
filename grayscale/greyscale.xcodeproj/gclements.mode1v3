@@ -272,7 +272,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>6</integer>
+									<integer>4</integer>
 									<integer>2</integer>
 									<integer>0</integer>
 								</array>
@@ -315,7 +315,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>GreyscaleEditPluginView.m</string>
+								<string>greyscale.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,19 +323,19 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>GreyscaleEditPluginView.m</string>
+										<string>greyscale.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>691AD09410AF25AA00D2D693</string>
+										<string>69A10FDC10AF2FEE0022AEFB</string>
 										<key>history</key>
 										<array>
 											<string>694C3F3D10AF1B2400ACAAC7</string>
 											<string>694C3F3E10AF1B2400ACAAC7</string>
 											<string>694C3F3F10AF1B2400ACAAC7</string>
 											<string>694C3F4010AF1B2400ACAAC7</string>
-											<string>691AD09210AF25AA00D2D693</string>
-											<string>691AD09310AF25AA00D2D693</string>
+											<string>69A10FDA10AF2FEE0022AEFB</string>
+											<string>69A10FDB10AF2FEE0022AEFB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -393,9 +393,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>691AD08910AF203A00D2D693</string>
+				<string>69A10FDD10AF2FEE0022AEFB</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>691AD08A10AF203A00D2D693</string>
+				<string>69A10FDE10AF2FEE0022AEFB</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -614,7 +614,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>69D72E17108D49A100ECA5AA</string>
-				<string>691AD08B10AF203A00D2D693</string>
+				<string>69A10FDF10AF2FEE0022AEFB</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

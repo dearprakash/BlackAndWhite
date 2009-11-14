@@ -31,6 +31,8 @@
 #define INPUT_BLUE_FACTOR @"inputBlueFactor"
 #define INPUT_GRAIN_FACTOR @"inputNoiseFactor"
 
+CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
+
 
 @interface greyscale(Private)
 
@@ -39,7 +41,7 @@
 -(void)synchSliders;
 -(void)updateFilter;
 -(void)updateAndRedisplay;
-
+-(void)saveWindowFrameToSettings;
 @end
 
 
@@ -141,6 +143,18 @@
 	[_fullSizeView setNeedsDisplay:YES];
 }
 
+-(void)saveWindowFrameToSettings
+{
+  if (_editWindow) {
+    CGRect r = CGRectMake(_editWindow.frame.origin.x, _editWindow.frame.origin.y, _editWindow.frame.size.width, _editWindow.frame.size.height);
+    CFDictionaryRef d = CGRectCreateDictionaryRepresentation(r);
+    CFPreferencesSetAppValue(windowFrameKey, d, kCFPreferencesCurrentApplication);
+    CFPreferencesAppSynchronize(kCFPreferencesCurrentApplication);
+    CFRelease(d);
+  }
+}
+
+
 //---------------------------------------------------------
 // initWithAPIManager:
 //
@@ -201,8 +215,17 @@
 		[myNib release];
     [_editWindow setAcceptsMouseMovedEvents:YES];
     [_editWindow setDelegate:self];
-    NSRect newFrame = [_editWindow constrainFrameRect:[_editWindow frame] toScreen:[NSScreen mainScreen]];
-    [_editWindow setFrame:newFrame display:YES animate:YES];
+    
+    CFDictionaryRef d = CFPreferencesCopyAppValue(windowFrameKey, kCFPreferencesCurrentApplication);
+    if (d != nil) {
+      CGRect r;
+      CGRectMakeWithDictionaryRepresentation(d, &r);
+      CFRelease(d);
+      [_editWindow setFrame:NSRectFromCGRect(r) display:YES];
+    } else {
+      NSRect newFrame = [_editWindow constrainFrameRect:[_editWindow frame] toScreen:[NSScreen mainScreen]];
+      [_editWindow setFrame:newFrame display:YES];
+    }
 	}
 	
 	return _editWindow;
@@ -252,7 +275,8 @@
 #pragma mark Actions
 
 - (IBAction)_cancelEditing:(id)sender
-{	
+{
+  [self saveWindowFrameToSettings];
 	// Tell Aperture to cancel
 	[_editManager cancelEditSession];
 }
@@ -326,7 +350,7 @@
 			[pool release];
 		}
 	}
-	
+  [self saveWindowFrameToSettings];
 	[_editManager endEditSession];
 }
 
