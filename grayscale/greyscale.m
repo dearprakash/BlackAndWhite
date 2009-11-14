@@ -200,6 +200,7 @@
 		}
 		[myNib release];
     [_editWindow setAcceptsMouseMovedEvents:YES];
+    [_editWindow setDelegate:self];
 	}
 	
 	return _editWindow;
@@ -435,6 +436,15 @@
 - (CIImage *)outputImage
 {
 	return [_cropFilter valueForKey:@"outputImage"];
+}
+
+#pragma mark -
+// NSWindowDelegate methods
+#pragma mark NSWindowDelegate methods
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+	[_editManager cancelEditSession];
 }
 
 @end
