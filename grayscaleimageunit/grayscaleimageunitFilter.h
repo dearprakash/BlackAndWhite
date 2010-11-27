@@ -35,6 +35,8 @@
   NSNumber     *inputGreenFactor;
   NSNumber     *inputBlueFactor;
   NSNumber     *inputNoiseFactor;
+  NSNumber     *inputContrastFactor;
+  NSNumber     *inputBrightnessFactor;
 }
 
 @end

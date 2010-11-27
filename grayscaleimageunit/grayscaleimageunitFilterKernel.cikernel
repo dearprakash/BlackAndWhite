@@ -1,4 +1,4 @@
-// Copyright (c) 2009 Geoffrey Clements
+// Copyright (c) 2009-2010 Geoffrey Clements
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -18,10 +18,30 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-kernel vec4 grayscale(sampler image, float redFactor, float greenFactor, float blueFactor)
+
+// Algorithm from Gimp to modify contrast and brightness, at least according to wikipedia
+//
+// if (brightness < 0.0)  value = value * ( 1.0 + brightness);
+//                  else value = value + ((1.0 - value) * brightness);
+// value = (value - 0.5) * (tan ((contrast + 1) * PI/4) ) + 0.5;
+// where value is the input color value in the 0..1 range and brightness and contrast are in the -1..1 range;
+
+// 0.7853981633974483 = PI/4
+
+kernel vec4 grayscale(sampler image, float redFactor, float greenFactor, float blueFactor, float contrastFactor, float brightnessFactor)
 {
   // Get source pixel
   vec4 p = sample(image, samplerCoord(image));
+  
+  // brightness
+  p.r = compare (brightnessFactor, clamp(p.r * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.r + ((1.0 - p.r) * brightnessFactor), 0.0, 1.0));
+  p.g = compare (brightnessFactor, clamp(p.g * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.g + ((1.0 - p.g) * brightnessFactor), 0.0, 1.0));
+  p.b = compare (brightnessFactor, clamp(p.b * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.b + ((1.0 - p.b) * brightnessFactor), 0.0, 1.0));
+  
+  // contrast
+  p.r = clamp((p.r - 0.5) * (tan_ ((contrastFactor + 1.0) * 0.7853981633974483) ) + 0.5, 0.0, 1.0);
+  p.g = clamp((p.g - 0.5) * (tan_ ((contrastFactor + 1.0) * 0.7853981633974483) ) + 0.5, 0.0, 1.0);
+  p.b = clamp((p.b - 0.5) * (tan_ ((contrastFactor + 1.0) * 0.7853981633974483) ) + 0.5, 0.0, 1.0);
   
   float factor = 1.0/clamp(redFactor+greenFactor+blueFactor, 0.0, 1.0);
 
@@ -32,10 +52,21 @@ kernel vec4 grayscale(sampler image, float redFactor, float greenFactor, float b
   return vec4(intensity, intensity, intensity, p.a);
 }
 
-kernel vec4 noisygrayscale(sampler image, sampler backgroundImage, float redFactor, float greenFactor, float blueFactor, float noiseFactor)
+kernel vec4 noisygrayscale(sampler image, sampler backgroundImage, float redFactor, float greenFactor, float blueFactor, float noiseFactor, float contrastFactor, float brightnessFactor)
 {
   // Get source pixel
   vec4 p = sample(image, samplerCoord(image));
+
+  // brightness
+  p.r = compare (brightnessFactor, clamp(p.r * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.r + ((1.0 - p.r) * brightnessFactor), 0.0, 1.0));
+  p.g = compare (brightnessFactor, clamp(p.g * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.g + ((1.0 - p.g) * brightnessFactor), 0.0, 1.0));
+  p.b = compare (brightnessFactor, clamp(p.b * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.b + ((1.0 - p.b) * brightnessFactor), 0.0, 1.0));
+  
+  // contrast
+  p.r = clamp((p.r - 0.5) * (tan_ ((contrastFactor + 1.0) * 0.7853981633974483) ) + 0.5, 0.0, 1.0);
+  p.g = clamp((p.g - 0.5) * (tan_ ((contrastFactor + 1.0) * 0.7853981633974483) ) + 0.5, 0.0, 1.0);
+  p.b = clamp((p.b - 0.5) * (tan_ ((contrastFactor + 1.0) * 0.7853981633974483) ) + 0.5, 0.0, 1.0);
+  
   vec4 noise = sample(backgroundImage, samplerCoord(backgroundImage));
   noiseFactor = noiseFactor / 4.0;
   float factor = 1.0/clamp(redFactor+greenFactor+blueFactor+noiseFactor, 0.0, 1.0);

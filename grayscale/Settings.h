@@ -30,6 +30,8 @@
 #define DEFAULT_BLUE_FACTOR_VALUE 0.11
 #define DEFAULT_GRAIN_FACTOR_VALUE 0.0
 #define DEFAULT_SEPIA_FACTOR_VALUE 0.0
+#define DEFAULT_CONTRAST_FACTOR_VALUE 0.0
+#define DEFAULT_BRIGHTNESS_FACTOR_VALUE 0.0
 
 
 @interface Settings : NSObject {
@@ -38,6 +40,8 @@
   CGFloat blueSetting;
   CGFloat grainSetting;
   CGFloat sepiaSetting;
+  CGFloat contrastSetting;
+  CGFloat brightnessSetting;
 }
 
 @property (nonatomic, assign) CGFloat redSetting;
@@ -45,6 +49,8 @@
 @property (nonatomic, assign) CGFloat blueSetting;
 @property (nonatomic, assign) CGFloat grainSetting;
 @property (nonatomic, assign) CGFloat sepiaSetting;
+@property (nonatomic, assign) CGFloat contrastSetting;
+@property (nonatomic, assign) CGFloat brightnessSetting;
 
 -(id)init;
 
@@ -53,6 +59,8 @@
 -(NSNumber *)blueSettingNumber;
 -(NSNumber *)grainSettingNumber;
 -(NSNumber *)sepiaSettingNumber;
+-(NSNumber *)contrastSettingNumber;
+-(NSNumber *)brightnessSettingNumber;
 
 -(void)revertToDefaults;
 

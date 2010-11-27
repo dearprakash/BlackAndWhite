@@ -38,6 +38,8 @@ static CGFloat clamp(CGFloat val, CGFloat lower, CGFloat upper) {
 @synthesize blueSetting;
 @synthesize grainSetting;
 @synthesize sepiaSetting;
+@synthesize contrastSetting;
+@synthesize brightnessSetting;
 
 -(void)validate
 {
@@ -46,6 +48,8 @@ static CGFloat clamp(CGFloat val, CGFloat lower, CGFloat upper) {
   blueSetting = clamp(blueSetting, 0.0, 1.0);
   grainSetting = clamp(grainSetting, 0.0, 1.0);
   sepiaSetting = clamp(sepiaSetting, 0.0, 1.0);
+  contrastSetting = clamp(contrastSetting, -1.0, 1.0);
+  brightnessSetting = clamp(brightnessSetting, -1.0, 1.0);
 }
 
 -(void)setRedSetting:(CGFloat)value
@@ -108,6 +112,16 @@ static CGFloat clamp(CGFloat val, CGFloat lower, CGFloat upper) {
   return [NSNumber numberWithFloat:sepiaSetting];
 }
 
+-(NSNumber *)contrastSettingNumber;
+{
+  return [NSNumber numberWithFloat:contrastSetting];
+}
+
+-(NSNumber *)brightnessSettingNumber;
+{
+  return [NSNumber numberWithFloat:brightnessSetting];
+}
+
 -(void)revertToDefaults
 {
   redSetting = DEFAULT_RED_FACTOR_VALUE;
@@ -115,11 +129,13 @@ static CGFloat clamp(CGFloat val, CGFloat lower, CGFloat upper) {
   blueSetting = DEFAULT_BLUE_FACTOR_VALUE;
   grainSetting = DEFAULT_GRAIN_FACTOR_VALUE;
   sepiaSetting = DEFAULT_SEPIA_FACTOR_VALUE;
+  contrastSetting = DEFAULT_CONTRAST_FACTOR_VALUE;
+  brightnessSetting = DEFAULT_BRIGHTNESS_FACTOR_VALUE;
 }
 
 -(NSString*)description;
 {
-  return [NSString stringWithFormat:@"<Settings: red: %.4f green: %.4f blue: %.4f grain: %f sepia: %f>", redSetting, greenSetting, blueSetting, grainSetting, sepiaSetting];
+  return [NSString stringWithFormat:@"<Settings: red: %.4f green: %.4f blue: %.4f grain: %f sepia: %f contrast: %f brightness: %f>", redSetting, greenSetting, blueSetting, grainSetting, sepiaSetting, contrastSetting, brightnessSetting];
 }
 
 @end

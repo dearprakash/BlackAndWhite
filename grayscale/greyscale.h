@@ -54,12 +54,21 @@
 	IBOutlet NSView *_imageView;
 	IBOutlet NSView *_fullSizeView;
 	IBOutlet NSSlider *_redSlider;
+	IBOutlet NSTextField *_redLabel;
 	IBOutlet NSSlider *_greenSlider;
+	IBOutlet NSTextField *_greenLabel;
 	IBOutlet NSSlider *_blueSlider;
+	IBOutlet NSTextField *_blueLabel;
 	IBOutlet NSSlider *_grainSlider;
+	IBOutlet NSTextField *_grainLabel;
 	IBOutlet NSButton *_grainButton;
 	IBOutlet NSSlider *_sepiaSlider;
+	IBOutlet NSTextField *_sepiaLabel;
 	IBOutlet NSButton *_sepiaButton;
+	IBOutlet NSSlider *_contrastSlider;
+	IBOutlet NSTextField *_contrastLabel;
+	IBOutlet NSSlider *_brightnessSlider;
+	IBOutlet NSTextField *_brightnessLabel;
 	
 @private
 	int _editingIndex;
@@ -71,6 +80,7 @@
 	CIFilter *_randomGenerator;
 	CIFilter *_randomCrop;
 	CIFilter *_sepiaFilter;
+	CIFilter *_brightnessAndContrastFilter;
 }
 
 - (IBAction)_cancelEditing:(id)sender;
@@ -83,6 +93,8 @@
 - (IBAction)_changeBlueSlider:(id)sender;
 - (IBAction)_changeGrainSlider:(id)sender;
 - (IBAction)_changeSepiaSlider:(id)sender;
+- (IBAction)_changeContrastSlider:(id)sender;
+- (IBAction)_changeBrightnessSlider:(id)sender;
 - (IBAction)_filmGrainChanged:(id)sender;
 - (IBAction)_sepiaChanged:(id)sender;
 

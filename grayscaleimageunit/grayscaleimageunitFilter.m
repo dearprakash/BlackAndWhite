@@ -2,7 +2,7 @@
 //  grayscaleimageunitFilter.m
 //  grayscaleimageunit
 //
-// Copyright (c) 2009 Geoffrey Clements
+// Copyright (c) 2009-2010 Geoffrey Clements
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -98,6 +98,27 @@ static CIKernel *_noisygrayscaleimageunitFilterKernel = nil;
            nil],                               @"inputNoiseFactor",
           
           [NSDictionary dictionaryWithObjectsAndKeys:
+           [NSNumber numberWithDouble:  -1.00], kCIAttributeMin,
+           [NSNumber numberWithDouble:  1.00], kCIAttributeMax,
+           [NSNumber numberWithDouble:  -1.00], kCIAttributeSliderMin,
+           [NSNumber numberWithDouble:  1.00], kCIAttributeSliderMax,
+           [NSNumber numberWithDouble:  0.0], kCIAttributeDefault,
+           [NSNumber numberWithDouble:  0.00], kCIAttributeIdentity,
+           kCIAttributeTypeScalar,             kCIAttributeType,
+           nil],                               @"inputContrastFactor",
+          
+          [NSDictionary dictionaryWithObjectsAndKeys:
+           [NSNumber numberWithDouble:  -1.00], kCIAttributeMin,
+           [NSNumber numberWithDouble:  1.00], kCIAttributeMax,
+           [NSNumber numberWithDouble:  -1.00], kCIAttributeSliderMin,
+           [NSNumber numberWithDouble:  1.00], kCIAttributeSliderMax,
+           [NSNumber numberWithDouble:  0.0], kCIAttributeDefault,
+           [NSNumber numberWithDouble:  0.00], kCIAttributeIdentity,
+           kCIAttributeTypeScalar,             kCIAttributeType,
+           nil],                               @"inputBrightnessFactor",
+          
+          
+          [NSDictionary dictionaryWithObjectsAndKeys:
            @"CIImage",             kCIAttributeClass,
            nil],                               @"inputBackgroundImage",
           
@@ -113,9 +134,9 @@ static CIKernel *_noisygrayscaleimageunitFilterKernel = nil;
   src = [CISampler samplerWithImage:inputImage];
   if (inputBackgroundImage != nil) {
     src2 = [CISampler samplerWithImage:inputBackgroundImage];
-    return [self apply:_noisygrayscaleimageunitFilterKernel, src, src2, inputRedFactor, inputGreenFactor, inputBlueFactor, inputNoiseFactor, nil];
+    return [self apply:_noisygrayscaleimageunitFilterKernel, src, src2, inputRedFactor, inputGreenFactor, inputBlueFactor, inputNoiseFactor, inputContrastFactor, inputBrightnessFactor, nil];
   }
-  return [self apply:_grayscaleimageunitFilterKernel, src, inputRedFactor, inputGreenFactor, inputBlueFactor, nil];
+  return [self apply:_grayscaleimageunitFilterKernel, src, inputRedFactor, inputGreenFactor, inputBlueFactor, inputContrastFactor, inputBrightnessFactor, nil];
 }
 
 @end

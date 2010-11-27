@@ -30,6 +30,8 @@
 #define INPUT_GREEN_FACTOR @"inputGreenFactor"
 #define INPUT_BLUE_FACTOR @"inputBlueFactor"
 #define INPUT_GRAIN_FACTOR @"inputNoiseFactor"
+#define INPUT_CONTRAST_FACTOR @"inputContrastFactor"
+#define INPUT_BRIGHTNESS_FACTOR @"inputBrightnessFactor"
 
 CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
 
@@ -39,9 +41,12 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
 - (void)_updateButtons;
 - (void)_editImage;
 -(void)synchSliders;
+-(void)resetSliders;
 -(void)updateFilter;
 -(void)updateAndRedisplay;
 -(void)saveWindowFrameToSettings;
+- (void)updateLabels;
+
 @end
 
 
@@ -119,6 +124,31 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
   [_redSlider setFloatValue:setting.redSetting];
   [_greenSlider setFloatValue:setting.greenSetting];
   [_blueSlider setFloatValue:setting.blueSetting];
+
+  [_grainSlider setFloatValue:setting.grainSetting];
+  [_sepiaSlider setFloatValue:setting.sepiaSetting];
+  [_contrastSlider setFloatValue:setting.contrastSetting];
+  [_brightnessSlider setFloatValue:setting.brightnessSetting];
+  [self updateLabels];
+
+}
+
+-(void)resetSliders
+{
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+  [_redSlider setFloatValue:setting.redSetting];
+  [_greenSlider setFloatValue:setting.greenSetting];
+  [_blueSlider setFloatValue:setting.blueSetting];
+  
+  [_grainSlider setFloatValue:setting.grainSetting];
+  [_sepiaSlider setFloatValue:setting.sepiaSetting];
+  [_contrastSlider setFloatValue:setting.contrastSetting];
+  [_brightnessSlider setFloatValue:setting.brightnessSetting];
+  _sepiaButton.state = NO;
+  _grainButton.state = NO;
+  [_sepiaSlider setEnabled:NO];
+  [_grainSlider setEnabled:NO];
+  [self updateLabels];
 }
 
 -(void)updateFilter
@@ -131,6 +161,8 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
   if (_sepiaButton.state) {
     [_sepiaFilter setValue:[setting sepiaSettingNumber] forKey:@"inputIntensity"];
   }
+	[_imageFilter setValue:[setting contrastSettingNumber] forKey:INPUT_CONTRAST_FACTOR];
+	[_imageFilter setValue:[setting brightnessSettingNumber] forKey:INPUT_BRIGHTNESS_FACTOR];
 }
 
 -(void)updateAndRedisplay
@@ -380,7 +412,7 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
 {
 	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
   [setting revertToDefaults];
-  [self synchSliders];
+  [self resetSliders];
 	[self updateFilter];
   [self _editImage];
 	[_revertButton setEnabled:NO];
@@ -432,6 +464,22 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
   [self updateAndRedisplay];
 }
 
+- (IBAction)_changeContrastSlider:(id)sender;
+{
+	float newValue = [sender floatValue];
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+  setting.contrastSetting = newValue;
+  [self updateAndRedisplay];
+}
+
+- (IBAction)_changeBrightnessSlider:(id)sender;
+{
+	float newValue = [sender floatValue];
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+  setting.brightnessSetting = newValue;
+  [self updateAndRedisplay];
+}
+
 - (IBAction)_filmGrainChanged:(id)sender
 {
   int state = [sender state];
@@ -471,6 +519,18 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
 - (void)windowWillClose:(NSNotification *)notification
 {
 	[_editManager cancelEditSession];
+}
+
+- (void)updateLabels
+{
+	Settings *setting = [_currentSettings objectAtIndex:_editingIndex];
+  [_redLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.redSetting]];
+  [_greenLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.greenSetting]];
+  [_blueLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.blueSetting]];
+  [_grainLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.grainSetting]];
+  [_sepiaLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.sepiaSetting]];
+  [_contrastLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.contrastSetting]];
+  [_brightnessLabel setTitleWithMnemonic:[NSString stringWithFormat:@"%.3f", setting.brightnessSetting]];
 }
 
 @end
