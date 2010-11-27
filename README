@@ -21,7 +21,11 @@ The second project is grayscale. It is the actual Aperture plugin. The code is
 a bit messy since it is a mix of my coding style and Apple's plugin sample
 code. Their sample coding style isn't quite the same as mine.
 
-The is also a installer project since most folks won't want to build and
+You can manually install the build products like:
+cp -R grayscale/build/Release/BlackAndWhite.ApertureEdit /Library/Application\ Support/Aperture/Plug-Ins/Edit/
+cp -R grayscaleimageunit/build/Release/grayscaleimageunit.plugin /Library/Graphics/Image\ Units/
+
+There is also a installer project since most folks won't want to build and
 manually install the plugin.
 
 My next step is to clean up the code to better fit my own coding style. The

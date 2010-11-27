@@ -2,7 +2,7 @@
 //  Settings.h
 //  greyscale
 //
-// Copyright (c) 2009 Geoffrey Clements
+// Copyright (c) 2009-2010 Geoffrey Clements
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
