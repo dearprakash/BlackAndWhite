@@ -31,7 +31,7 @@
 kernel vec4 grayscale(sampler image, float redFactor, float greenFactor, float blueFactor, float contrastFactor, float brightnessFactor)
 {
   // Get source pixel
-  vec4 p = sample(image, samplerCoord(image));
+  vec4 p = unpremultiply(sample(image, samplerCoord(image)));
   
   // brightness
   p.r = compare (brightnessFactor, clamp(p.r * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.r + ((1.0 - p.r) * brightnessFactor), 0.0, 1.0));
@@ -55,7 +55,7 @@ kernel vec4 grayscale(sampler image, float redFactor, float greenFactor, float b
 kernel vec4 noisygrayscale(sampler image, sampler backgroundImage, float redFactor, float greenFactor, float blueFactor, float noiseFactor, float contrastFactor, float brightnessFactor)
 {
   // Get source pixel
-  vec4 p = sample(image, samplerCoord(image));
+  vec4 p = unpremultiply(sample(image, samplerCoord(image)));
 
   // brightness
   p.r = compare (brightnessFactor, clamp(p.r * ( 1.0 + brightnessFactor), 0.0, 1.0), clamp(p.r + ((1.0 - p.r) * brightnessFactor), 0.0, 1.0));

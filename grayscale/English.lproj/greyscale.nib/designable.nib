@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="10"/>
+			<integer value="9"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -36,7 +36,7 @@
 			<object class="NSWindowTemplate" id="428879276">
 				<int key="NSWindowStyleMask">11</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{356, -385}, {1010, 929}}</string>
+				<string key="NSWindowRect">{{356, 337}, {1010, 930}}</string>
 				<int key="NSWTFlags">1886912512</int>
 				<string key="NSWindowTitle">BlackAndWhite</string>
 				<object class="NSMutableString" key="NSWindowClass">
@@ -55,7 +55,7 @@
 						<object class="NSCustomView" id="25366927">
 							<reference key="NSNextResponder" ref="226487955"/>
 							<int key="NSvFlags">274</int>
-							<string key="NSFrame">{{20, 264}, {970, 645}}</string>
+							<string key="NSFrame">{{20, 264}, {970, 646}}</string>
 							<reference key="NSSuperview" ref="226487955"/>
 							<string key="NSClassName">GreyscaleEditPluginView</string>
 						</object>
@@ -575,7 +575,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{1010, 929}</string>
+					<string key="NSFrameSize">{1010, 930}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
@@ -1556,9 +1556,9 @@
 						<bytes key="NSTransformStruct">P4AAAL+AAABCTAAAwzMAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{137, 141}, {1010, 929}}</string>
+					<string>{{137, 141}, {1010, 930}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{137, 141}, {1010, 929}}</string>
+					<string>{{137, 141}, {1010, 930}}</string>
 					<boolean value="YES"/>
 					<boolean value="YES"/>
 					<string>{213, 107}</string>

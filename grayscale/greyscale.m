@@ -370,7 +370,7 @@ CFStringRef windowFrameKey = CFSTR("BlackAndWhiteWindowFrame");
 			NSString *versionUniqueId = [[_editManager editableVersionIds] objectAtIndex:_editingIndex];
 			if (versionUniqueId != nil) {
 				NSArray *version = [NSArray arrayWithObject:versionUniqueId];
-				NSString *keyword = @"Edited";
+				NSString *keyword = @"Edited with BlackAndWhite";
 				NSArray *keywordHierarchy = [NSArray arrayWithObject:keyword];
 				NSArray *keywords =  [NSArray arrayWithObject:keywordHierarchy];
 				[_editManager addHierarchicalKeywords:keywords toVersions:version];
