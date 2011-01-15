@@ -8,6 +8,8 @@ some point I'll rename it.
 The project is released under the MIT license. See the LICENSE file for
 details.
 
+Before trying to build the projects you will need to install the Aperture 2.1 SDK. You can dowload the SDK from the APple developer site. (I've been told that you also need to install the Final Cut SDK, but I didn't need to.)
+
 There are two parts to BlackAndWhite. The first is a Core Image filter. Start
 by building the grayscaleimageunit project. The interesting part of that
 project is the grayscaleimageunitFilterKernel.cikernel file. That file has the
@@ -22,6 +24,7 @@ a bit messy since it is a mix of my coding style and Apple's plugin sample
 code. Their sample coding style isn't quite the same as mine.
 
 You can manually install the build products like:
+
 cp -R grayscale/build/Release/BlackAndWhite.ApertureEdit /Library/Application\ Support/Aperture/Plug-Ins/Edit/
 cp -R grayscaleimageunit/build/Release/grayscaleimageunit.plugin /Library/Graphics/Image\ Units/
 
